@@ -16,7 +16,7 @@ public class DineFoodActivity extends Fragment {
 
     public DineFoodActivity()
     {
-//testing
+//ajdbdaknabdaknda
     }
 
     @Override
