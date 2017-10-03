@@ -1,0 +1,6 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/right"
+        android:state_empty="true" />
+    <item android:drawable="@drawable/expandarrow"
+        android:state_expanded="false" />
+</selector>

@@ -88,8 +88,10 @@ public class HomePageActivity extends AppCompatActivity
             startActivity(new Intent(getApplicationContext(),DineShopActivity.class));
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-
+            startActivity(new Intent(getApplicationContext(),HandsFreeShoppingActivity.class));
         } else if (id == R.id.nav_slideshow) {
+            startActivity(new Intent(getApplicationContext(),TabActivity.class));
+
 
         } else if (id == R.id.nav_manage) {
 
