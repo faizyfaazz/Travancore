@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,12 +16,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
 public class HomePageActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawer;
     ImageButton cat_nav_button;
+    TextView autoscroll_textview;
+    ScrollView autoscrollView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +34,15 @@ public class HomePageActivity extends AppCompatActivity
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
         cat_nav_button = (ImageButton)findViewById(R.id.cat_nav_imbutton);
+        autoscroll_textview =(TextView)findViewById(R.id.home_autoscroll_text);
+        autoscrollView = (ScrollView)findViewById(R.id.autoscroll_home);
+        autoscroll_textview.setMovementMethod(new ScrollingMovementMethod());
+        autoscrollView.post(new Runnable() {
+            @Override
+            public void run() {
+                autoscrollView.fullScroll(ScrollView.FOCUS_DOWN);
+            }
+        });
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
