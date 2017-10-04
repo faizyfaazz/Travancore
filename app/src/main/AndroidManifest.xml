@@ -22,7 +22,6 @@
         <activity android:name=".TabActivity" />
         <activity
             android:name=".HomePageActivity"
-
             />
         <activity android:name=".DineShopActivity"></activity>
     </application>
