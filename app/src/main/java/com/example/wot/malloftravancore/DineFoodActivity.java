@@ -15,14 +15,10 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class DineFoodActivity extends Fragment {
     List<DineFoodModel> heroList;
-
     //the listview
     ListView listView;
-
-
     public DineFoodActivity()
     {
     }

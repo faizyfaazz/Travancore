@@ -11,19 +11,23 @@
         <activity
             android:name=".SplashScreenActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/MotTheme">
+            android:theme="@style/MotTheme"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HandsFreeShoppingActivity" />
-        <activity android:name=".TabActivity" />
+        <activity android:name=".HandsFreeShoppingActivity"
+            />
+        <activity android:name=".TabActivity"
+            android:theme="@style/AppTheme"/>
         <activity
             android:name=".HomePageActivity"
             />
-        <activity android:name=".DineShopActivity"></activity>
+        <activity android:name=".DineShopActivity"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
