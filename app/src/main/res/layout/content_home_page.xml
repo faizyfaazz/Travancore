@@ -29,6 +29,7 @@
                     <EditText
                         android:paddingStart="20dp"
                         android:paddingEnd="20dp"
+                        android:textSize="16dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="30dp"
@@ -44,7 +45,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="70dp"
             android:layout_below="@id/appBarLayoutSearch"
             android:background="@drawable/rectangle_background"
             android:paddingStart="20dp"
@@ -73,9 +74,9 @@ jjjkmk"
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="220dp"
             android:layout_below="@id/autoscroll_home"
-            android:background="#abcdef">
+            android:background="@drawable/dealshomebackground">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -90,7 +91,7 @@ jjjkmk"
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/home_hotdeal_recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="190dp"
+                android:layout_height="160dp"
                 android:layout_below="@id/home_offer_txt"
                 android:layout_marginTop="5dp"
                 android:layout_marginStart="30dp"
