@@ -10,7 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
-
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -29,6 +31,18 @@
                 android:id="@+id/toolbar_title" />
             </android.support.v7.widget.Toolbar>
 
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:contentDescription="Categories"
+                android:id="@+id/cat_nav_imbutton"
+                android:background="@android:color/transparent"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:src="@drawable/contactus_nav_icon" />
+        </RelativeLayout>
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_home_page" />
