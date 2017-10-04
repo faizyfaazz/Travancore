@@ -40,8 +40,12 @@ public class HomePageActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        NavigationView navigationViewLeft = (NavigationView) findViewById(R.id.nav_view);
+        navigationViewLeft.setNavigationItemSelectedListener(this);
+
+
+        NavigationView navigationViewRight = (NavigationView) findViewById(R.id.nav_view_right);
+        navigationViewRight.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -49,7 +53,11 @@ public class HomePageActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
+        }
+        else if (drawer.isDrawerOpen(GravityCompat.END)) {
+            drawer.closeDrawer(GravityCompat.END);
+        }
+        else {
             super.onBackPressed();
         }
     }
