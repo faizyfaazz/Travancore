@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -19,6 +21,9 @@ import android.widget.ImageButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class HomePageActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -26,6 +31,10 @@ public class HomePageActivity extends AppCompatActivity
     ImageButton cat_nav_button;
     TextView autoscroll_textview;
     ScrollView autoscrollView;
+    RecyclerView recyclerViewDeals;
+    RecyclerView.LayoutManager mLayoutManager;
+    DealsoftheDay_Adapter dealsoftheDay_adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +45,8 @@ public class HomePageActivity extends AppCompatActivity
         cat_nav_button = (ImageButton)findViewById(R.id.cat_nav_imbutton);
         autoscroll_textview =(TextView)findViewById(R.id.home_autoscroll_text);
         autoscrollView = (ScrollView)findViewById(R.id.autoscroll_home);
+        recyclerViewDeals = (RecyclerView)findViewById(R.id.home_hotdeal_recycler_view);
+
         autoscroll_textview.setMovementMethod(new ScrollingMovementMethod());
         autoscrollView.post(new Runnable() {
             @Override
@@ -80,6 +91,16 @@ public class HomePageActivity extends AppCompatActivity
                 }
             }
         });
+
+        mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerViewDeals.setLayoutManager(mLayoutManager);
+
+        ArrayList<String> alName = new ArrayList<>(Arrays.asList("Cheesy...", "Crispy... ", "Fizzy...", "Cool...", "Softy...", "Fruity...", "Fresh...", "Sticky..."));
+        ArrayList<Integer> alImage = new ArrayList<>(Arrays.asList(R.drawable.bikess, R.drawable.robinsons, R.drawable.bikess, R.drawable.robinsons, R.drawable.bikess, R.drawable.robinsons, R.drawable.bikess, R.drawable.robinsons));
+
+
+        dealsoftheDay_adapter = new DealsoftheDay_Adapter(HomePageActivity.this,alName,alImage);
+        recyclerViewDeals.setAdapter(dealsoftheDay_adapter);
     }
 
     @Override

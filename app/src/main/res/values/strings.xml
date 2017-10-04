@@ -8,6 +8,8 @@
 
     <string name="action_settings">Settings</string>
     <string name="hint_search_home">Search for Shops and Events</string>
+    <string name="home_offer_title_text">Hot Deals of the Day</string>
+    <string name="home_card_imageview">home_card_imageview</string>
 
 
 </resources>
