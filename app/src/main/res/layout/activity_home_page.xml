@@ -34,6 +34,9 @@
         android:layout_height="match_parent"
         android:layout_gravity="end"
         android:fitsSystemWindows="true"
+        android:background="@color/colorPrimary"
+        app:itemTextColor="#FFFFFF"
+        app:itemIconTint="#FFFFFF"
         app:headerLayout="@layout/nav_header_home_page_right"
         app:menu="@menu/nav_menu_right" />
 

@@ -18,12 +18,14 @@ import android.view.MenuItem;
 public class HomePageActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    DrawerLayout drawer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -34,7 +36,8 @@ public class HomePageActivity extends AppCompatActivity
             }
         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -77,7 +80,8 @@ public class HomePageActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.categories_nav_icon) {
+            drawer.openDrawer(GravityCompat.END); /*Opens the Right Drawer*/
             return true;
         }
 
@@ -95,7 +99,7 @@ public class HomePageActivity extends AppCompatActivity
         if (id == R.id.nav_camera) {
             startActivity(new Intent(getApplicationContext(),DineShopActivity.class));
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.handsfree_nav_menuitem) {
             startActivity(new Intent(getApplicationContext(),HandsFreeShoppingActivity.class));
         } else if (id == R.id.nav_slideshow) {
             startActivity(new Intent(getApplicationContext(),TabActivity.class));
