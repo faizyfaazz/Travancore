@@ -1,6 +1,7 @@
 package com.example.wot.malloftravancore;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -34,6 +35,7 @@ public class DealsoftheDay_Adapter extends RecyclerView.Adapter<DealsoftheDay_Ad
             titletxt = (TextView) itemView.findViewById(R.id.home_card_title);
             desctxt = (TextView) itemView.findViewById(R.id.home_card_desc);
             imageView = (ImageView) itemView.findViewById(R.id.home_card_imageview);
+
         }
     }
 
@@ -55,7 +57,8 @@ public class DealsoftheDay_Adapter extends RecyclerView.Adapter<DealsoftheDay_Ad
 
     @Override
     public void onBindViewHolder(DealsoftheDay_Adapter.MyViewHolder holder, int position) {
-
+        Typeface typefaceQuestrial = Typeface.createFromAsset(context.getAssets(), "fonts/questrial_regular.ttf");
+    //    holder.titletxt.setTypeface(typefaceQuestrial);
         holder.titletxt.setText(alName.get(position));
         holder.imageView.setImageResource(alImage.get(position));
 

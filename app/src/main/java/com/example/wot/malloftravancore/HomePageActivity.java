@@ -1,6 +1,7 @@
 package com.example.wot.malloftravancore;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -50,7 +51,8 @@ public class HomePageActivity extends AppCompatActivity
         recyclerViewDeals = (RecyclerView)findViewById(R.id.home_hotdeal_recycler_view);
         recyclerViewOffers = (RecyclerView)findViewById(R.id.home_offers_recycler_view);
 
-
+        Typeface typefaceQuestrial = Typeface.createFromAsset(getAssets(), "fonts/questrial_regular.ttf");
+        autoscroll_textview.setTypeface(typefaceQuestrial);
 
         autoscroll_textview.setMovementMethod(new ScrollingMovementMethod());
         autoscrollView.post(new Runnable() {
