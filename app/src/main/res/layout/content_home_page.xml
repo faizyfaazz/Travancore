@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:isScrollContainer="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.wot.malloftravancore.HomePageActivity"
     tools:showIn="@layout/app_bar_home_page">
@@ -15,6 +17,7 @@
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             android:id="@+id/appBarLayoutSearch">
 
@@ -29,13 +32,15 @@
                     <EditText
                         android:paddingStart="20dp"
                         android:paddingEnd="20dp"
-                        android:textSize="16dp"
+                        android:textSize="18sp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
                         android:layout_marginBottom="15dp"
-                        android:drawableRight="@drawable/ic_search_24dp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:drawableEnd="@drawable/ic_search_24dp"
                         android:hint="@string/hint_search_home"
                         android:textColorHint="@color/colorPrimaryDark"
                         android:textColor="@color/colorPrimaryDark"
@@ -43,65 +48,114 @@
                 </android.support.v7.widget.Toolbar>
         </android.support.design.widget.AppBarLayout>
 
-        <ScrollView
+        <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_below="@id/appBarLayoutSearch"
-            android:background="@drawable/rectangle_background"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:id="@+id/autoscroll_home">
-            <TextView
+            android:layout_height="match_parent"
+            android:layout_below="@id/appBarLayoutSearch">
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimary"
-                android:id="@+id/home_autoscroll_text"
-                android:text="jsakfhsajkfhsajkfhjkf
-jfhjfkh
-fsafjkhskaf
-fsafjakjhfsfjfjnsjnffdgdgfdgdfgdfgdfgfdgdgdfgdgdg
-jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkyggggggggggggguyhbjbnjhbnjhbjn
-jjjkmk"
-                android:gravity="bottom"
-                android:scrollbars="vertical"
+                android:layout_height="match_parent"
+                android:id="@+id/mainhomerlayout">
 
-                />
-        </ScrollView>
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="@drawable/rectangle_background"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:id="@+id/autoscroll_home">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:id="@+id/home_autoscroll_text"
+                        android:text="jsakfhsajkfhsajkfhjkf
+        jfhjfkh
+        fsafjkhskaf
+        fsafjakjhfsfjfjnsjnffdgdgfdgdfgdfgdfgfdgdgdfgdgdg
+        jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkyggggggggggggguyhbjbnjhbnjhbjn
+        jjjkmk"
+                        android:gravity="bottom"
+                        android:scrollbars="vertical"
 
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:layout_below="@id/autoscroll_home"
-            android:background="@drawable/dealshomebackground">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/home_offer_txt"
-                android:text="@string/home_offer_title_text"
-                android:textColor="@color/colorAccent"
-                android:textSize="22sp"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="30dp"/>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/home_hotdeal_recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:layout_below="@id/home_offer_txt"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="30dp"
-                >
-                </android.support.v7.widget.RecyclerView>
+                        />
+                </ScrollView>
 
 
 
-        </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="235dp"
+                    android:id="@+id/homedealsrlayout"
+                    android:layout_below="@id/autoscroll_home"
+                    android:background="@drawable/dealshomebackground">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/home_offer_txt"
+                        android:text="@string/home_offer_title_text"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="22sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="30dp"/>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/home_hotdeal_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:layout_below="@id/home_offer_txt"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="30dp"
+                        >
+                        </android.support.v7.widget.RecyclerView>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/homedealsrlayout">
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/homedealsrlayout"
+                    >
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        app:cardElevation="10dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Our Offers"
+                            android:textSize="22sp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/home_ouroffertxt"/>
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/home_offers_recycler_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="50dp"
+                            >
+                        </android.support.v7.widget.RecyclerView>
+                    </android.support.v7.widget.CardView>
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+        </android.support.v4.widget.NestedScrollView>
     </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>

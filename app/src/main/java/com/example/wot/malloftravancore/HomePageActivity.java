@@ -17,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -31,9 +32,10 @@ public class HomePageActivity extends AppCompatActivity
     ImageButton cat_nav_button;
     TextView autoscroll_textview;
     ScrollView autoscrollView;
-    RecyclerView recyclerViewDeals;
-    RecyclerView.LayoutManager mLayoutManager;
+    RecyclerView recyclerViewDeals,recyclerViewOffers;
+    RecyclerView.LayoutManager mLayoutManager,mlayoutManager2;
     DealsoftheDay_Adapter dealsoftheDay_adapter;
+    HomeOffers_Adapter homeOffers_adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,9 @@ public class HomePageActivity extends AppCompatActivity
         autoscroll_textview =(TextView)findViewById(R.id.home_autoscroll_text);
         autoscrollView = (ScrollView)findViewById(R.id.autoscroll_home);
         recyclerViewDeals = (RecyclerView)findViewById(R.id.home_hotdeal_recycler_view);
+        recyclerViewOffers = (RecyclerView)findViewById(R.id.home_offers_recycler_view);
+
+
 
         autoscroll_textview.setMovementMethod(new ScrollingMovementMethod());
         autoscrollView.post(new Runnable() {
@@ -98,10 +103,25 @@ public class HomePageActivity extends AppCompatActivity
         ArrayList<String> alName = new ArrayList<>(Arrays.asList("Cheesy...", "Crispy... ", "Fizzy...", "Cool...", "Softy...", "Fruity...", "Fresh...", "Sticky..."));
         ArrayList<Integer> alImage = new ArrayList<>(Arrays.asList(R.drawable.bikess, R.drawable.robinsons, R.drawable.bikess, R.drawable.robinsons, R.drawable.bikess, R.drawable.robinsons, R.drawable.bikess, R.drawable.robinsons));
 
-
         dealsoftheDay_adapter = new DealsoftheDay_Adapter(HomePageActivity.this,alName,alImage);
         recyclerViewDeals.setAdapter(dealsoftheDay_adapter);
+
+
+        mlayoutManager2 = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        recyclerViewOffers.setLayoutManager(mlayoutManager2);
+
+        homeOffers_adapter = new HomeOffers_Adapter(HomePageActivity.this,alImage);
+        recyclerViewOffers.setAdapter(homeOffers_adapter);
+
     }
+
+
+
+
+
+
+
+
 
     @Override
     public void onBackPressed() {

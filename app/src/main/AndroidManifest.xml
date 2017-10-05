@@ -25,6 +25,7 @@
             android:theme="@style/AppTheme"/>
         <activity
             android:name=".HomePageActivity"
+  android:windowSoftInputMode="stateHidden|adjustResize"
             />
         <activity android:name=".DineShopActivity"
             android:theme="@style/AppTheme"></activity>
