@@ -13,6 +13,7 @@
 
     <string name="categoriesHome">Categories</string>
     <string name="Home_our_offers">Our Offers</string>
+    <string name="homeoffersimviewContentDesc">homeoffersimview</string>
 
 
 </resources>

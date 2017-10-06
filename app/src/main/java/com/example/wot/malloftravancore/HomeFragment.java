@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -27,6 +28,7 @@ public class HomeFragment extends Fragment {
 
     TextView autoscroll_textview,dealstxt,offerstxt;
     ScrollView autoscrollView;
+    EditText SearcheditText;
     RecyclerView recyclerViewDeals,recyclerViewOffers;
     RecyclerView.LayoutManager mLayoutManager,mlayoutManager2;
     DealsoftheDay_Adapter dealsoftheDay_adapter;
@@ -49,6 +51,7 @@ public class HomeFragment extends Fragment {
         autoscroll_textview =(TextView)view.findViewById(R.id.home_autoscroll_text);
         dealstxt =(TextView)view.findViewById(R.id.home_offer_txt);
         offerstxt =(TextView)view.findViewById(R.id.home_ouroffertxt);
+        SearcheditText =(EditText) view.findViewById(R.id.homesearchet);
         autoscrollView = (ScrollView)view.findViewById(R.id.autoscroll_home);
         recyclerViewDeals = (RecyclerView)view.findViewById(R.id.home_hotdeal_recycler_view);
         recyclerViewOffers = (RecyclerView)view.findViewById(R.id.home_offers_recycler_view);
@@ -59,6 +62,7 @@ public class HomeFragment extends Fragment {
         autoscroll_textview.setTypeface(typefaceQuestrial);
         dealstxt.setTypeface(typefaceGillB);
         offerstxt.setTypeface(typefaceGillB);
+        SearcheditText.setTypeface(typefaceQuestrial);
 
 
         Log.d("HomeFragment", "thread = " + Thread.currentThread().getName());

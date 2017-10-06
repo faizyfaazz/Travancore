@@ -26,6 +26,7 @@
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp"
                     android:textSize="18sp"
+                    android:id="@+id/homesearchet"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="30dp"
@@ -101,7 +102,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="177dp"
                         android:layout_below="@id/home_offer_txt"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginStart="30dp"
                         >
                     </android.support.v7.widget.RecyclerView>
