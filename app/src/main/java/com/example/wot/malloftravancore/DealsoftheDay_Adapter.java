@@ -12,6 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 /**
@@ -60,7 +62,8 @@ public class DealsoftheDay_Adapter extends RecyclerView.Adapter<DealsoftheDay_Ad
         Typeface typefaceQuestrial = Typeface.createFromAsset(context.getAssets(), "fonts/questrial_regular.ttf");
     //    holder.titletxt.setTypeface(typefaceQuestrial);
         holder.titletxt.setText(alName.get(position));
-        holder.imageView.setImageResource(alImage.get(position));
+        Glide.with(context).load(alImage.get(position)).into(holder.imageView);
+
 
     }
 

@@ -1,13 +1,11 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.wot.malloftravancore.HomeFragment">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
@@ -94,14 +92,14 @@
                         android:id="@+id/home_offer_txt"
                         android:text="@string/home_offer_title_text"
                         android:textColor="@color/colorAccent"
-                        android:textSize="22sp"
+                        android:textSize="18sp"
                         android:layout_marginTop="10dp"
                         android:layout_marginStart="30dp"/>
 
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/home_hotdeal_recycler_view"
                         android:layout_width="match_parent"
-                        android:layout_height="180dp"
+                        android:layout_height="177dp"
                         android:layout_below="@id/home_offer_txt"
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="30dp"
@@ -111,13 +109,6 @@
 
                 </RelativeLayout>
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@id/homedealsrlayout">
-
-
-                </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -132,8 +123,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Our Offers"
-                            android:textSize="22sp"
+                            android:text="@string/Home_our_offers"
+                            android:textSize="18sp"
                             android:layout_marginStart="20dp"
                             android:layout_marginTop="10dp"
                             android:id="@+id/home_ouroffertxt"/>
@@ -154,4 +145,4 @@
     </RelativeLayout>
 
 
-</FrameLayout>
+

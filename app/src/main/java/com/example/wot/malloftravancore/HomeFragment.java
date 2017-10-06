@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,7 @@ import java.util.Arrays;
  */
 public class HomeFragment extends Fragment {
 
-    TextView autoscroll_textview;
+    TextView autoscroll_textview,dealstxt,offerstxt;
     ScrollView autoscrollView;
     RecyclerView recyclerViewDeals,recyclerViewOffers;
     RecyclerView.LayoutManager mLayoutManager,mlayoutManager2;
@@ -46,12 +47,21 @@ public class HomeFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_home, container, false);
 
         autoscroll_textview =(TextView)view.findViewById(R.id.home_autoscroll_text);
+        dealstxt =(TextView)view.findViewById(R.id.home_offer_txt);
+        offerstxt =(TextView)view.findViewById(R.id.home_ouroffertxt);
         autoscrollView = (ScrollView)view.findViewById(R.id.autoscroll_home);
         recyclerViewDeals = (RecyclerView)view.findViewById(R.id.home_hotdeal_recycler_view);
         recyclerViewOffers = (RecyclerView)view.findViewById(R.id.home_offers_recycler_view);
 
           Typeface typefaceQuestrial = Typeface.createFromAsset(getActivity().getAssets(), "fonts/questrial_regular.ttf");
+          Typeface typefaceGillB = Typeface.createFromAsset(getActivity().getAssets(), "fonts/GillSansMTPro-Bold.otf");
+          Typeface typefaceGillM = Typeface.createFromAsset(getActivity().getAssets(), "fonts/GillSansMTPro-Medium.otf");
         autoscroll_textview.setTypeface(typefaceQuestrial);
+        dealstxt.setTypeface(typefaceGillB);
+        offerstxt.setTypeface(typefaceGillB);
+
+
+        Log.d("HomeFragment", "thread = " + Thread.currentThread().getName());
 
         autoscroll_textview.setMovementMethod(new ScrollingMovementMethod());
         autoscrollView.post(new Runnable() {
@@ -74,7 +84,7 @@ public class HomeFragment extends Fragment {
         mlayoutManager2 = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
         recyclerViewOffers.setLayoutManager(mlayoutManager2);
 
-        homeOffers_adapter = new HomeOffers_Adapter(getContext(),alImage);
+        homeOffers_adapter = new HomeOffers_Adapter(getContext(),alName,alImage);
         recyclerViewOffers.setAdapter(homeOffers_adapter);
 
         return view;
