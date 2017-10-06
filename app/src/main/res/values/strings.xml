@@ -11,5 +11,7 @@
     <string name="home_offer_title_text">Hot Deals of the Day</string>
     <string name="home_card_imageview">home_card_imageview</string>
 
+    <string name="categoriesHome">Categories</string>
+
 
 </resources>

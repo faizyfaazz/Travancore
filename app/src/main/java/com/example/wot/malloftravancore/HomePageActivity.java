@@ -31,12 +31,7 @@ public class HomePageActivity extends AppCompatActivity
 
     DrawerLayout drawer;
     ImageButton cat_nav_button;
-    TextView autoscroll_textview;
-    ScrollView autoscrollView;
-    RecyclerView recyclerViewDeals,recyclerViewOffers;
-    RecyclerView.LayoutManager mLayoutManager,mlayoutManager2;
-    DealsoftheDay_Adapter dealsoftheDay_adapter;
-    HomeOffers_Adapter homeOffers_adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,31 +41,42 @@ public class HomePageActivity extends AppCompatActivity
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
         cat_nav_button = (ImageButton)findViewById(R.id.cat_nav_imbutton);
-        autoscroll_textview =(TextView)findViewById(R.id.home_autoscroll_text);
-        autoscrollView = (ScrollView)findViewById(R.id.autoscroll_home);
-        recyclerViewDeals = (RecyclerView)findViewById(R.id.home_hotdeal_recycler_view);
-        recyclerViewOffers = (RecyclerView)findViewById(R.id.home_offers_recycler_view);
 
-        Typeface typefaceQuestrial = Typeface.createFromAsset(getAssets(), "fonts/questrial_regular.ttf");
-        autoscroll_textview.setTypeface(typefaceQuestrial);
 
-        autoscroll_textview.setMovementMethod(new ScrollingMovementMethod());
-        autoscrollView.post(new Runnable() {
-            @Override
-            public void run() {
-                autoscrollView.fullScroll(ScrollView.FOCUS_DOWN);
+        // Check that the activity is using the layout version with
+        // the fragment_container FrameLayout
+        if (findViewById(R.id.homepageframelayout) != null) {
+
+            // However, if we're being restored from a previous state,
+            // then we don't need to do anything and should return or else
+            // we could end up with overlapping fragments.
+            if (savedInstanceState != null) {
+                return;
             }
-        });
+
+            // Create a new Fragment to be placed in the activity layout
+            HomeFragment firstFragment = new HomeFragment();
+
+            // In case this activity was started with special instructions from an
+            // Intent, pass the Intent's extras to the fragment as arguments
+            // firstFragment.setArguments(getIntent().getExtras());
+
+            // Add the fragment to the 'fragment_container' FrameLayout
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.homepageframelayout, firstFragment).commit();
+        }
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+
+       /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -99,21 +105,7 @@ public class HomePageActivity extends AppCompatActivity
             }
         });
 
-        mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        recyclerViewDeals.setLayoutManager(mLayoutManager);
 
-        ArrayList<String> alName = new ArrayList<>(Arrays.asList("Cheesy...", "Crispy... ", "Fizzy...", "Cool...", "Softy...", "Fruity...", "Fresh...", "Sticky..."));
-        ArrayList<Integer> alImage = new ArrayList<>(Arrays.asList(R.drawable.bikess, R.drawable.robinsons, R.drawable.bikess, R.drawable.robinsons, R.drawable.bikess, R.drawable.robinsons, R.drawable.bikess, R.drawable.robinsons));
-
-        dealsoftheDay_adapter = new DealsoftheDay_Adapter(HomePageActivity.this,alName,alImage);
-        recyclerViewDeals.setAdapter(dealsoftheDay_adapter);
-
-
-        mlayoutManager2 = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
-        recyclerViewOffers.setLayoutManager(mlayoutManager2);
-
-        homeOffers_adapter = new HomeOffers_Adapter(HomePageActivity.this,alImage);
-        recyclerViewOffers.setAdapter(homeOffers_adapter);
 
     }
 
